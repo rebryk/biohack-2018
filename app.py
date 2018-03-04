@@ -41,16 +41,17 @@ class VScrollTable(Frame):
 def openFile():
     path = askopenfilename()
     included_cols = ['chrom', 'inputPos', 'inputRef', 'inputAlt', 'varLocation', 'codingEffect', 'varLocation', 'alt_pNomen', 'score']
-    os.system('./run.sh')
+    #os.system('./run.sh')
     df = pd.read_csv("result.csv")
     df = df[included_cols]
-    df.to_csv("result2.csv", sep='\t', encoding='utf-8')
+    df.to_csv("result2.csv", sep=',', encoding='utf-8')
     with open("result2.csv", newline = "") as f:
         reader = csv.reader(f)
         table.reset()
         for r, texts in enumerate(reader):
             for c, text in enumerate(texts):
                 table.add_item(text, r, c)
+                print(text)
 
 if __name__ == '__main__':
     root = Tk()
