@@ -6,3 +6,5 @@
 learn/
 test/
 catboost_training.json
+model.cb
+feature_importance.png
