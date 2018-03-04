@@ -12,7 +12,7 @@ class VScrollTable(Frame):
         Frame.__init__(self, root)
 
         # here magic happens
-        self.canvas = Canvas(root, width=900, height=1000, borderwidth=0, background="#ffffff")
+        self.canvas = Canvas(root, width=1100, height=1000, borderwidth=0, background="#ffffff")
         self.frame = Frame(self.canvas, background="#ffffff")
         self.vsb = Scrollbar(root, orient="vertical", command=self.canvas.yview)
         self.canvas.configure(yscrollcommand=self.vsb.set)
@@ -51,7 +51,6 @@ def openFile():
         for r, texts in enumerate(reader):
             for c, text in enumerate(texts):
                 table.add_item(text, r, c)
-                print(text)
 
 if __name__ == '__main__':
     root = Tk()
